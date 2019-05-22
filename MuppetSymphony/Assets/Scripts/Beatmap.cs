@@ -57,13 +57,10 @@ public class Beatmap : MonoBehaviour
     {
         // Converts the deltatime to milliseconds and increments timer by it
         ui_delayTimer += (uint)(Time.deltaTime * 1000);
-<<<<<<< HEAD
 
         if (ui_delayTimer >= ui_delayUntilNextBeat)
         {
             // Spawn the beat in the correct spot
         }
-=======
->>>>>>> master
     }
 }
