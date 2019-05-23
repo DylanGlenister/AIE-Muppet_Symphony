@@ -5,10 +5,12 @@ using System.IO;
 
 public class Beatmap : MonoBehaviour
 {
-    private Beatdata[] bd_beatList;
+    private uint ui_delayUntilNextBeat { get; set; }
+    private uint ui_delayTimer { get; set; }
 
-    private uint ui_delayUntilNextBeat;
-    private uint ui_delayTimer;
+    private Beatdata[] bd_beatList;
+    public GameObject go_beatPrefab;        // A reference to the beat prefab
+    public GameObject[] go_laneList;    //
 
     public void ReadFromFile (string pLocation)
     {
@@ -44,6 +46,19 @@ public class Beatmap : MonoBehaviour
         ui_delayUntilNextBeat = bd_beatList[0].ui_delay;
     }
 
+    private void PopFirstBeat ()
+    {
+        // Creates a new beat data list 1 shorter
+        Beatdata[] newShortList = new Beatdata[bd_beatList.Length - 1];
+
+        for (int i = 0; i < newShortList.Length; i++)
+        {
+            newShortList[i] = bd_beatList[i + 1];
+        }
+
+        bd_beatList = newShortList;
+    }
+
     void Start ()
     {
         // Initlialise variables
@@ -55,12 +70,32 @@ public class Beatmap : MonoBehaviour
 
     private void Update()
     {
-        // Converts the deltatime to milliseconds and increments timer by it
-        ui_delayTimer += (uint)(Time.deltaTime * 1000);
+        Debug.Log(ui_delayTimer + ", " + ui_delayUntilNextBeat);
 
-        if (ui_delayTimer >= ui_delayUntilNextBeat)
+        if (bd_beatList.Length > 0)
         {
-            // Spawn the beat in the correct spot
+            // Converts the deltatime to milliseconds and increments timer by it
+            ui_delayTimer += (uint)(Time.deltaTime * 1000);
+
+            if (ui_delayTimer >= ui_delayUntilNextBeat)
+            {
+                if (bd_beatList[0].us_lane == 4)
+                {
+                    // This will spawn a massive 4 lane box that requires space to be pressed
+                }
+                else
+                {
+                    Instantiate(go_beatPrefab, go_laneList[bd_beatList[0].us_lane].transform.position,
+                        Quaternion.identity);
+                    PopFirstBeat();
+
+                    ui_delayTimer -= ui_delayUntilNextBeat;
+
+                    if (bd_beatList.Length > 0)
+                        // Resets timers for next beat
+                        ui_delayUntilNextBeat = bd_beatList[0].ui_delay;
+                }
+            }
         }
     }
 }
