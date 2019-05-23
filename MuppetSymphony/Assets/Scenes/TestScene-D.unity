@@ -315,6 +315,7 @@ GameObject:
   m_Component:
   - component: {fileID: 637378228}
   - component: {fileID: 637378227}
+  - component: {fileID: 637378230}
   - component: {fileID: 637378229}
   m_Layer: 0
   m_Name: GameController
@@ -335,7 +336,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f81ca56744717d94d9b91ad8922b0737, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ba_beatActivation: {fileID: 637378230}
   go_beatPrefab: {fileID: 7042980965032727379, guid: 18e0e1d4ec488ce41844102944ac9ee1,
+    type: 3}
+  go_beatBigPrefab: {fileID: 5152077402222055953, guid: 5b801a7d19c3e2749986e7b174a6c623,
     type: 3}
   go_laneList:
   - {fileID: 1511125685}
@@ -369,6 +373,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9083286a8972e7c4fa4434ebaaabea2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &637378230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 637378226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f5845d7e298935468c6fda3df1562cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  s_score: {fileID: 637378229}
+  b_currentBeats: []
 --- !u!1 &850429339
 GameObject:
   m_ObjectHideFlags: 0
@@ -805,10 +823,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: BeatBig
       objectReference: {fileID: 0}
+    - target: {fileID: 5152077402222055953, guid: 5b801a7d19c3e2749986e7b174a6c623,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5152077402222055952, guid: 5b801a7d19c3e2749986e7b174a6c623,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.99
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5152077402222055952, guid: 5b801a7d19c3e2749986e7b174a6c623,
         type: 3}
@@ -877,12 +900,12 @@ PrefabInstance:
     - target: {fileID: 7042980965032727379, guid: 18e0e1d4ec488ce41844102944ac9ee1,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7042980965032727378, guid: 18e0e1d4ec488ce41844102944ac9ee1,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.58
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 7042980965032727378, guid: 18e0e1d4ec488ce41844102944ac9ee1,
         type: 3}

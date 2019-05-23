@@ -4,7 +4,15 @@ using UnityEngine;
 
 public class Beat : MonoBehaviour
 {
-    public float f_speed = 150.0f;
+    public enum Size
+    {
+        regular,
+        big
+    }
+
+    public Size s_size { get; set; } = Size.regular;
+
+    public float f_speed = 200.0f;
  
     Rigidbody2D rb_rigidbody;
 

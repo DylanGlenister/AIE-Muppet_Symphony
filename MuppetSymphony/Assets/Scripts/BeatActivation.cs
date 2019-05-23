@@ -4,25 +4,23 @@ using UnityEngine;
 
 public class BeatActivation : MonoBehaviour
 {
-    public enum ActivationMode
-    {
-        Failure = 0,
-        Late,
-        Perfect,
-        Early
-    }
-    
-    public ActivationMode am_mode;
-
     public Score s_score;
-    private Beat[] b_currentBeats;
+
+    public GameObject[] b_currentBeats;
 
     BoxCollider2D bc_boxCollider;
 
-    public void AddBeat (Beat pNewBeat)
+    private void PopFirstBeat()
     {
-        if (b_currentBeats.Length == 0)
-            b_currentBeats[0] = pNewBeat;
+        // Creates a new gameobject list 1 shorter
+        GameObject[] newShortList = new GameObject[b_currentBeats.Length - 1];
+
+        for (int i = 0; i < newShortList.Length; i++)
+        {
+            newShortList[i] = b_currentBeats[i + 1];
+        }
+
+        b_currentBeats = newShortList;
     }
 
     // Start is called before the first frame update
@@ -34,34 +32,51 @@ public class BeatActivation : MonoBehaviour
     // Update is called once per frame
     void Update ()
     {
-        // If beat x < -9.58
+        if (b_currentBeats.Length == 0)
+            return;
 
-        if (Input.GetKeyDown(KeyCode.D))
+        // Removes the oldest beat if it have passed the player
+        if (b_currentBeats[0].transform.position.x < -9.5f)
         {
+            Destroy(b_currentBeats[0]);
+            PopFirstBeat();
             s_score.SubtractScore(10);
         }
 
-        if (am_mode == ActivationMode.Failure)
+        foreach (GameObject beat in b_currentBeats)
         {
-            //s_score.SubtractScore(20);
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+
+            }
         }
 
-        if (Input.GetKeyDown(KeyCode.D)
-            && am_mode == ActivationMode.Late)
-        {
-            s_score.AddScore(15);
-        }
+        //if (Input.GetKeyDown(KeyCode.D))
+        //{
+        //    s_score.SubtractScore(10);
+        //}
 
-        if (Input.GetKeyDown(KeyCode.D)
-            && am_mode == ActivationMode.Perfect)
-        {
-            s_score.AddScore(30);
-        }
+        //if (am_mode == ActivationMode.Failure)
+        //{
+        //    //s_score.SubtractScore(20);
+        //}
 
-        if (Input.GetKeyDown(KeyCode.D)
-            && am_mode == ActivationMode.Early)
-        {
-            s_score.AddScore(15);
-        }
+        //if (Input.GetKeyDown(KeyCode.D)
+        //    && am_mode == ActivationMode.Late)
+        //{
+        //    s_score.AddScore(15);
+        //}
+
+        //if (Input.GetKeyDown(KeyCode.D)
+        //    && am_mode == ActivationMode.Perfect)
+        //{
+        //    s_score.AddScore(30);
+        //}
+
+        //if (Input.GetKeyDown(KeyCode.D)
+        //    && am_mode == ActivationMode.Early)
+        //{
+        //    s_score.AddScore(15);
+        //}
     }
 }
