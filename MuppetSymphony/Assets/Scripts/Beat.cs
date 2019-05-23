@@ -6,13 +6,13 @@ public class Beat : MonoBehaviour
 {
     public float f_speed = 150.0f;
  
-    Rigidbody2D rb;
+    Rigidbody2D rb_rigidbody;
 
     // Start is called before the first frame update
     void Start ()
     {
-        rb = GetComponent<Rigidbody2D>();
-        rb.AddForce(new Vector2(0, -f_speed));
+        rb_rigidbody = GetComponent<Rigidbody2D>();
+        rb_rigidbody.AddForce(new Vector2(-f_speed, 0));
     }
 
     // Update is called once per frame

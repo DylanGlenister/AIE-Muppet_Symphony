@@ -5,12 +5,18 @@ using System.IO;
 
 public class Beatmap : MonoBehaviour
 {
+    private struct Beatdata
+    {
+        public ushort us_lane;
+        public uint ui_delay;
+    }
+
     private uint ui_delayUntilNextBeat { get; set; }
     private uint ui_delayTimer { get; set; }
 
     private Beatdata[] bd_beatList;
-    public GameObject go_beatPrefab;        // A reference to the beat prefab
-    public GameObject[] go_laneList;    //
+    public GameObject go_beatPrefab;
+    public GameObject[] go_laneList;
 
     public void ReadFromFile (string pLocation)
     {
@@ -68,14 +74,14 @@ public class Beatmap : MonoBehaviour
         ReadFromFile("/test.txt");
     }
 
-    private void Update()
+    private void Update ()
     {
-        Debug.Log(ui_delayTimer + ", " + ui_delayUntilNextBeat);
+        //Debug.Log(ui_delayTimer + ", " + ui_delayUntilNextBeat);
 
         if (bd_beatList.Length > 0)
         {
             // Converts the deltatime to milliseconds and increments timer by it
-            ui_delayTimer += (uint)(Time.deltaTime * 1000);
+            ui_delayTimer += (uint)(Time.deltaTime * 100);
 
             if (ui_delayTimer >= ui_delayUntilNextBeat)
             {
@@ -88,8 +94,6 @@ public class Beatmap : MonoBehaviour
                     Instantiate(go_beatPrefab, go_laneList[bd_beatList[0].us_lane].transform.position,
                         Quaternion.identity);
                     PopFirstBeat();
-
-                    ui_delayTimer -= ui_delayUntilNextBeat;
 
                     if (bd_beatList.Length > 0)
                         // Resets timers for next beat
