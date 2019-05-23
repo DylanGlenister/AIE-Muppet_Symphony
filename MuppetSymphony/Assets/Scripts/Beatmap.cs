@@ -92,10 +92,14 @@ public class Beatmap : MonoBehaviour
                 if (bd_beatList[0].us_lane == 4)
                 {
                     // This will spawn a massive 4 lane box that requires space to be pressed
-                    GameObject newBeat = Instantiate(go_beatPrefab,
+                    GameObject newBeat = Instantiate(go_beatBigPrefab,
                         go_laneList[bd_beatList[0].us_lane].transform.position,
                         Quaternion.identity);
-                    newBeat.GetComponent<Beat>().s_size = Beat.Size.big;
+
+                    Beat beatInfo = newBeat.GetComponent<Beat>();
+                    beatInfo.s_size = Beat.Size.big;
+                    beatInfo.us_lane = bd_beatList[0].us_lane;
+
                     ba_beatActivation.l_currentBeats.Add(newBeat);
                     PopFirstBeat();
 
@@ -109,7 +113,11 @@ public class Beatmap : MonoBehaviour
                     GameObject newBeat = Instantiate(go_beatPrefab,
                         go_laneList[bd_beatList[0].us_lane].transform.position,
                         Quaternion.identity);
-                    newBeat.GetComponent<Beat>().s_size = Beat.Size.regular;
+
+                    Beat beatInfo = newBeat.GetComponent<Beat>();
+                    beatInfo.s_size = Beat.Size.big;
+                    beatInfo.us_lane = bd_beatList[0].us_lane;
+
                     ba_beatActivation.l_currentBeats.Add(newBeat);
                     PopFirstBeat();
 

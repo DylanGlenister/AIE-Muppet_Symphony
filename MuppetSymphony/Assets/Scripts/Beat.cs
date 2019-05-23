@@ -12,6 +12,7 @@ public class Beat : MonoBehaviour
 
     public Size s_size { get; set; } = Size.regular;
 
+    public ushort us_lane;
     public float f_speed = 200.0f;
  
     Rigidbody2D rb_rigidbody;

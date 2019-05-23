@@ -30,32 +30,213 @@ public class BeatActivation : MonoBehaviour
             s_score.SubtractScore(10);
         }
 
+        // Lane 1
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            List<GameObject> toBeDeleted = new List<GameObject>();
+            foreach (GameObject beat in l_currentBeats)
+            {
+                if (beat.GetComponent<Beat>().us_lane == 0
+                    && beat.GetComponent<Beat>().s_size == Beat.Size.regular)
+                {
+                    // Late
+                    if (beat.transform.position.x < -7)
+                    {
+                        toBeDeleted.Add(beat);
+                        s_score.AddScore(10);
+                    }
+                    // Perfect
+                    else if (beat.transform.position.x < -6.75f)
+                    {
+                        toBeDeleted.Add(beat);
+                        s_score.AddScore(20);
+                    }
+                    // Early
+                    else if (beat.transform.position.x < -6)
+                    {
+                        toBeDeleted.Add(beat);
+                        s_score.AddScore(10);
+                    }
+                }
+            }
+
+            // If no beats were interacted with then punish the player
+            if (toBeDeleted.Count > 0)
+                s_score.SubtractScore(10);
+
+            // Purge the to be deleted list
+            foreach (GameObject beat in toBeDeleted)
+            {
+                l_currentBeats.Remove(beat);
+                Destroy(beat);
+            }
+
+            toBeDeleted.Clear();
+        }
+
+        // Lane 2
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            List<GameObject> toBeDeleted = new List<GameObject>();
+            foreach (GameObject beat in l_currentBeats)
+            {
+                if (beat.GetComponent<Beat>().us_lane == 1
+                    && beat.GetComponent<Beat>().s_size == Beat.Size.regular)
+                {
+                    // Late
+                    if (beat.transform.position.x < -7)
+                    {
+                        toBeDeleted.Add(beat);
+                        s_score.AddScore(10);
+                    }
+                    // Perfect
+                    else if (beat.transform.position.x < -6.75f)
+                    {
+                        toBeDeleted.Add(beat);
+                        s_score.AddScore(20);
+                    }
+                    // Early
+                    else if (beat.transform.position.x < -6)
+                    {
+                        toBeDeleted.Add(beat);
+                        s_score.AddScore(10);
+                    }
+                }
+            }
+
+            // If no beats were interacted with then punish the player
+            if (toBeDeleted.Count > 0)
+                s_score.SubtractScore(10);
+
+            // Purge the to be deleted list
+            foreach (GameObject beat in toBeDeleted)
+            {
+                l_currentBeats.Remove(beat);
+                Destroy(beat);
+            }
+
+            toBeDeleted.Clear();
+        }
+
+        // Lane 3
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            List<GameObject> toBeDeleted = new List<GameObject>();
+            foreach (GameObject beat in l_currentBeats)
+            {
+                if (beat.GetComponent<Beat>().us_lane == 2
+                    && beat.GetComponent<Beat>().s_size == Beat.Size.regular)
+                {
+                    // Late
+                    if (beat.transform.position.x < -7)
+                    {
+                        toBeDeleted.Add(beat);
+                        s_score.AddScore(10);
+                    }
+                    // Perfect
+                    else if (beat.transform.position.x < -6.75f)
+                    {
+                        toBeDeleted.Add(beat);
+                        s_score.AddScore(20);
+                    }
+                    // Early
+                    else if (beat.transform.position.x < -6)
+                    {
+                        toBeDeleted.Add(beat);
+                        s_score.AddScore(10);
+                    }
+                }
+            }
+
+            // If no beats were interacted with then punish the player
+            if (toBeDeleted.Count > 0)
+                s_score.SubtractScore(10);
+
+            // Purge the to be deleted list
+            foreach (GameObject beat in toBeDeleted)
+            {
+                l_currentBeats.Remove(beat);
+                Destroy(beat);
+            }
+
+            toBeDeleted.Clear();
+        }
+
+        // Lane 4
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            List<GameObject> toBeDeleted = new List<GameObject>();
+            foreach (GameObject beat in l_currentBeats)
+            {
+                if (beat.GetComponent<Beat>().us_lane == 3
+                    && beat.GetComponent<Beat>().s_size == Beat.Size.regular)
+                {
+                    // Late
+                    if (beat.transform.position.x < -7)
+                    {
+                        toBeDeleted.Add(beat);
+                        s_score.AddScore(10);
+                    }
+                    // Perfect
+                    else if (beat.transform.position.x < -6.75f)
+                    {
+                        toBeDeleted.Add(beat);
+                        s_score.AddScore(20);
+                    }
+                    // Early
+                    else if (beat.transform.position.x < -6)
+                    {
+                        toBeDeleted.Add(beat);
+                        s_score.AddScore(10);
+                    }
+                }
+            }
+
+            // If no beats were interacted with then punish the player
+            if (toBeDeleted.Count > 0)
+                s_score.SubtractScore(10);
+
+            // Purge the to be deleted list
+            foreach (GameObject beat in toBeDeleted)
+            {
+                l_currentBeats.Remove(beat);
+                Destroy(beat);
+            }
+
+            toBeDeleted.Clear();
+        }
+
+        // Lane 5
         if (Input.GetKeyDown(KeyCode.Space))
         {
             List<GameObject> toBeDeleted = new List<GameObject>();
             foreach (GameObject beat in l_currentBeats)
             {
-                // Late
-                if (beat.transform.position.x < -7)
+                if (beat.GetComponent<Beat>().us_lane == 4
+                    && beat.GetComponent<Beat>().s_size == Beat.Size.big)
                 {
-                    toBeDeleted.Add(beat);
-                    s_score.AddScore(10);
-                }
-                // Perfect
-                else if (beat.transform.position.x < -6.75f)
-                {
-                    toBeDeleted.Add(beat);
-                    s_score.AddScore(20);
-                }
-                // Early
-                else if (beat.transform.position.x < -6)
-                {
-                    toBeDeleted.Add(beat);
-                    s_score.AddScore(10);
+                    // Late
+                    if (beat.transform.position.x < -7)
+                    {
+                        toBeDeleted.Add(beat);
+                        s_score.AddScore(10);
+                    }
+                    // Perfect
+                    else if (beat.transform.position.x < -6.75f)
+                    {
+                        toBeDeleted.Add(beat);
+                        s_score.AddScore(20);
+                    }
+                    // Early
+                    else if (beat.transform.position.x < -6)
+                    {
+                        toBeDeleted.Add(beat);
+                        s_score.AddScore(10);
+                    }
                 }
             }
 
-            // If no beat were interacted with then punish the player
+            // If no beats were interacted with then punish the player
             if (toBeDeleted.Count > 0)
                 s_score.SubtractScore(10);
 
