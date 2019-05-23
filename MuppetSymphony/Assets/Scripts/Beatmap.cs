@@ -5,12 +5,22 @@ using System.IO;
 
 public class Beatmap : MonoBehaviour
 {
+    private struct Beatdata
+    {
+        public ushort us_lane;
+        public uint ui_delay;
+    }
+
     private uint ui_delayUntilNextBeat { get; set; }
     private uint ui_delayTimer { get; set; }
 
+    public BeatActivation ba_beatActivation;
+
     private Beatdata[] bd_beatList;
-    public GameObject go_beatPrefab;        // A reference to the beat prefab
-    public GameObject[] go_laneList;    //
+
+    public GameObject go_beatPrefab;
+    public GameObject go_beatBigPrefab;
+    public GameObject[] go_laneList;
 
     public void ReadFromFile (string pLocation)
     {
@@ -48,7 +58,7 @@ public class Beatmap : MonoBehaviour
 
     private void PopFirstBeat ()
     {
-        // Creates a new beat data list 1 shorter
+        // Creates a new beatdata list 1 shorter
         Beatdata[] newShortList = new Beatdata[bd_beatList.Length - 1];
 
         for (int i = 0; i < newShortList.Length; i++)
@@ -68,28 +78,54 @@ public class Beatmap : MonoBehaviour
         ReadFromFile("/test.txt");
     }
 
-    private void Update()
+    private void Update ()
     {
-        Debug.Log(ui_delayTimer + ", " + ui_delayUntilNextBeat);
+        //Debug.Log(ui_delayTimer + ", " + ui_delayUntilNextBeat);
 
         if (bd_beatList.Length > 0)
         {
             // Converts the deltatime to milliseconds and increments timer by it
-            ui_delayTimer += (uint)(Time.deltaTime * 1000);
+            ui_delayTimer += (uint)(Time.deltaTime * 100);
 
             if (ui_delayTimer >= ui_delayUntilNextBeat)
             {
                 if (bd_beatList[0].us_lane == 4)
                 {
                     // This will spawn a massive 4 lane box that requires space to be pressed
+                    GameObject newBeat = Instantiate(go_beatPrefab,
+                        go_laneList[bd_beatList[0].us_lane].transform.position,
+                        Quaternion.identity);
+                    newBeat.GetComponent<Beat>().s_size = Beat.Size.big;
+                    
+                    // Creates a temp list to store data and increment the lists length to add the new beat
+                    GameObject[] tempList = ba_beatActivation.b_currentBeats;
+                    ba_beatActivation.b_currentBeats = new GameObject[tempList.Length + 1];
+                    for (int i = 0; i < tempList.Length; i++)
+                        ba_beatActivation.b_currentBeats[i] = tempList[i];
+                    ba_beatActivation.b_currentBeats[ba_beatActivation.b_currentBeats.Length - 1] = newBeat;
+
+                    PopFirstBeat();
+
+                    if (bd_beatList.Length > 0)
+                        // Resets timers for next beat
+                        ui_delayUntilNextBeat = bd_beatList[0].ui_delay;
                 }
                 else
                 {
-                    Instantiate(go_beatPrefab, go_laneList[bd_beatList[0].us_lane].transform.position,
+                    // Creates a single beat in a single lane
+                    GameObject newBeat = Instantiate(go_beatPrefab,
+                        go_laneList[bd_beatList[0].us_lane].transform.position,
                         Quaternion.identity);
-                    PopFirstBeat();
+                    newBeat.GetComponent<Beat>().s_size = Beat.Size.regular;
 
-                    ui_delayTimer -= ui_delayUntilNextBeat;
+                    // Creates a temp list to store data and increment the lists length to add the new beat
+                    GameObject[] tempList = ba_beatActivation.b_currentBeats;
+                    ba_beatActivation.b_currentBeats = new GameObject[tempList.Length + 1];
+                    for (int i = 0; i < tempList.Length; i++)
+                        ba_beatActivation.b_currentBeats[i] = tempList[i];
+                    ba_beatActivation.b_currentBeats[ba_beatActivation.b_currentBeats.Length - 1] = newBeat;
+
+                    PopFirstBeat();
 
                     if (bd_beatList.Length > 0)
                         // Resets timers for next beat
