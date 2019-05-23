@@ -10,18 +10,18 @@ public class Beat : MonoBehaviour
         big
     }
 
-    public Size s_size { get; set; } = Size.regular;
+    public Size m_sSize { get; set; } = Size.regular;
 
-    public ushort us_lane;
-    public float f_speed = 200.0f;
+    public ushort m_usLane;
+    public float m_fSpeed = 200.0f;
  
-    Rigidbody2D rb_rigidbody;
+    Rigidbody2D m_rbRigidbody;
 
     // Start is called before the first frame update
     void Start ()
     {
-        rb_rigidbody = GetComponent<Rigidbody2D>();
-        rb_rigidbody.AddForce(new Vector2(-f_speed, 0));
+        m_rbRigidbody = GetComponent<Rigidbody2D>();
+        m_rbRigidbody.AddForce(new Vector2(-m_fSpeed, 0));
     }
 
     // Update is called once per frame
