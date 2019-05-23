@@ -96,14 +96,7 @@ public class Beatmap : MonoBehaviour
                         go_laneList[bd_beatList[0].us_lane].transform.position,
                         Quaternion.identity);
                     newBeat.GetComponent<Beat>().s_size = Beat.Size.big;
-                    
-                    // Creates a temp list to store data and increment the lists length to add the new beat
-                    GameObject[] tempList = ba_beatActivation.b_currentBeats;
-                    ba_beatActivation.b_currentBeats = new GameObject[tempList.Length + 1];
-                    for (int i = 0; i < tempList.Length; i++)
-                        ba_beatActivation.b_currentBeats[i] = tempList[i];
-                    ba_beatActivation.b_currentBeats[ba_beatActivation.b_currentBeats.Length - 1] = newBeat;
-
+                    ba_beatActivation.l_currentBeats.Add(newBeat);
                     PopFirstBeat();
 
                     if (bd_beatList.Length > 0)
@@ -117,14 +110,7 @@ public class Beatmap : MonoBehaviour
                         go_laneList[bd_beatList[0].us_lane].transform.position,
                         Quaternion.identity);
                     newBeat.GetComponent<Beat>().s_size = Beat.Size.regular;
-
-                    // Creates a temp list to store data and increment the lists length to add the new beat
-                    GameObject[] tempList = ba_beatActivation.b_currentBeats;
-                    ba_beatActivation.b_currentBeats = new GameObject[tempList.Length + 1];
-                    for (int i = 0; i < tempList.Length; i++)
-                        ba_beatActivation.b_currentBeats[i] = tempList[i];
-                    ba_beatActivation.b_currentBeats[ba_beatActivation.b_currentBeats.Length - 1] = newBeat;
-
+                    ba_beatActivation.l_currentBeats.Add(newBeat);
                     PopFirstBeat();
 
                     if (bd_beatList.Length > 0)

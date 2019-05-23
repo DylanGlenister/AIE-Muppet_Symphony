@@ -5,23 +5,10 @@ using UnityEngine;
 public class BeatActivation : MonoBehaviour
 {
     public Score s_score;
-
-    public GameObject[] b_currentBeats;
+    
+    public List<GameObject> l_currentBeats;
 
     BoxCollider2D bc_boxCollider;
-
-    private void PopFirstBeat()
-    {
-        // Creates a new gameobject list 1 shorter
-        GameObject[] newShortList = new GameObject[b_currentBeats.Length - 1];
-
-        for (int i = 0; i < newShortList.Length; i++)
-        {
-            newShortList[i] = b_currentBeats[i + 1];
-        }
-
-        b_currentBeats = newShortList;
-    }
 
     // Start is called before the first frame update
     void Start ()
@@ -32,51 +19,54 @@ public class BeatActivation : MonoBehaviour
     // Update is called once per frame
     void Update ()
     {
-        if (b_currentBeats.Length == 0)
+        if (l_currentBeats.Count == 0)
             return;
 
-        // Removes the oldest beat if it have passed the player
-        if (b_currentBeats[0].transform.position.x < -9.5f)
+        // Removes the oldest beat if it has passed the player
+        if (l_currentBeats[0].transform.position.x < -9.5f)
         {
-            Destroy(b_currentBeats[0]);
-            PopFirstBeat();
+            Destroy(l_currentBeats[0]);
+            l_currentBeats.RemoveAt(0);
             s_score.SubtractScore(10);
         }
 
-        foreach (GameObject beat in b_currentBeats)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            List<GameObject> toBeDeleted = new List<GameObject>();
+            foreach (GameObject beat in l_currentBeats)
             {
-
+                // Late
+                if (beat.transform.position.x < -7)
+                {
+                    toBeDeleted.Add(beat);
+                    s_score.AddScore(10);
+                }
+                // Perfect
+                else if (beat.transform.position.x < -6.75f)
+                {
+                    toBeDeleted.Add(beat);
+                    s_score.AddScore(20);
+                }
+                // Early
+                else if (beat.transform.position.x < -6)
+                {
+                    toBeDeleted.Add(beat);
+                    s_score.AddScore(10);
+                }
             }
+
+            // If no beat were interacted with then punish the player
+            if (toBeDeleted.Count > 0)
+                s_score.SubtractScore(10);
+
+            // Purge the to be deleted list
+            foreach (GameObject beat in toBeDeleted)
+            {
+                l_currentBeats.Remove(beat);
+                Destroy(beat);
+            }
+
+            toBeDeleted.Clear();
         }
-
-        //if (Input.GetKeyDown(KeyCode.D))
-        //{
-        //    s_score.SubtractScore(10);
-        //}
-
-        //if (am_mode == ActivationMode.Failure)
-        //{
-        //    //s_score.SubtractScore(20);
-        //}
-
-        //if (Input.GetKeyDown(KeyCode.D)
-        //    && am_mode == ActivationMode.Late)
-        //{
-        //    s_score.AddScore(15);
-        //}
-
-        //if (Input.GetKeyDown(KeyCode.D)
-        //    && am_mode == ActivationMode.Perfect)
-        //{
-        //    s_score.AddScore(30);
-        //}
-
-        //if (Input.GetKeyDown(KeyCode.D)
-        //    && am_mode == ActivationMode.Early)
-        //{
-        //    s_score.AddScore(15);
-        //}
     }
 }
