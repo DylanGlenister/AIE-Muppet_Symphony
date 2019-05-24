@@ -23,7 +23,7 @@ public class BeatActivation : MonoBehaviour
             return;
 
         // Removes the oldest beat if it has passed the player
-        if (m_lCurrentBeats[0].transform.position.x < -9.5f)
+        if (m_lCurrentBeats[0].transform.position.x < -5.5f)
         {
             Destroy(m_lCurrentBeats[0]);
             m_lCurrentBeats.RemoveAt(0);
@@ -39,19 +39,19 @@ public class BeatActivation : MonoBehaviour
                 if (beat.GetComponent<Beat>().m_usLane == 0)
                 {
                     // Late
-                    if (beat.transform.position.x < -7)
+                    if (beat.transform.position.y < -3.75f)
                     {
                         toBeDeleted.Add(beat);
                         m_sScore.AddScore(10);
                     }
                     // Perfect
-                    else if (beat.transform.position.x < -6.75f)
+                    else if (beat.transform.position.y < -3.3f)
                     {
                         toBeDeleted.Add(beat);
                         m_sScore.AddScore(20);
                     }
                     // Early
-                    else if (beat.transform.position.x < -6)
+                    else if (beat.transform.position.y < -2.5f)
                     {
                         toBeDeleted.Add(beat);
                         m_sScore.AddScore(10);
@@ -82,19 +82,19 @@ public class BeatActivation : MonoBehaviour
                 if (beat.GetComponent<Beat>().m_usLane == 1)
                 {
                     // Late
-                    if (beat.transform.position.x < -7)
+                    if (beat.transform.position.y < -3.75f)
                     {
                         toBeDeleted.Add(beat);
                         m_sScore.AddScore(10);
                     }
                     // Perfect
-                    else if (beat.transform.position.x < -6.75f)
+                    else if (beat.transform.position.y < -3.3f)
                     {
                         toBeDeleted.Add(beat);
                         m_sScore.AddScore(20);
                     }
                     // Early
-                    else if (beat.transform.position.x < -6)
+                    else if (beat.transform.position.y < -2.5f)
                     {
                         toBeDeleted.Add(beat);
                         m_sScore.AddScore(10);
@@ -125,19 +125,19 @@ public class BeatActivation : MonoBehaviour
                 if (beat.GetComponent<Beat>().m_usLane == 2)
                 {
                     // Late
-                    if (beat.transform.position.x < -7)
+                    if (beat.transform.position.y < -3.75f)
                     {
                         toBeDeleted.Add(beat);
                         m_sScore.AddScore(10);
                     }
                     // Perfect
-                    else if (beat.transform.position.x < -6.75f)
+                    else if (beat.transform.position.y < -3.3f)
                     {
                         toBeDeleted.Add(beat);
                         m_sScore.AddScore(20);
                     }
                     // Early
-                    else if (beat.transform.position.x < -6)
+                    else if (beat.transform.position.y < -2.5f)
                     {
                         toBeDeleted.Add(beat);
                         m_sScore.AddScore(10);
@@ -168,19 +168,19 @@ public class BeatActivation : MonoBehaviour
                 if (beat.GetComponent<Beat>().m_usLane == 3)
                 {
                     // Late
-                    if (beat.transform.position.x < -7)
+                    if (beat.transform.position.y < -3.75f)
                     {
                         toBeDeleted.Add(beat);
                         m_sScore.AddScore(10);
                     }
                     // Perfect
-                    else if (beat.transform.position.x < -6.75f)
+                    else if (beat.transform.position.y < -3.3f)
                     {
                         toBeDeleted.Add(beat);
                         m_sScore.AddScore(20);
                     }
                     // Early
-                    else if (beat.transform.position.x < -6)
+                    else if (beat.transform.position.y < -2.5f)
                     {
                         toBeDeleted.Add(beat);
                         m_sScore.AddScore(10);
@@ -211,19 +211,19 @@ public class BeatActivation : MonoBehaviour
                 if (beat.GetComponent<Beat>().m_usLane == 4)
                 {
                     // Late
-                    if (beat.transform.position.x < -7)
+                    if (beat.transform.position.y < -3.75f)
                     {
                         toBeDeleted.Add(beat);
                         m_sScore.AddScore(10);
                     }
                     // Perfect
-                    else if (beat.transform.position.x < -6.75f)
+                    else if (beat.transform.position.y < -3.3f)
                     {
                         toBeDeleted.Add(beat);
                         m_sScore.AddScore(20);
                     }
                     // Early
-                    else if (beat.transform.position.x < -6)
+                    else if (beat.transform.position.y < -2.5f)
                     {
                         toBeDeleted.Add(beat);
                         m_sScore.AddScore(10);

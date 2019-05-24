@@ -18,6 +18,8 @@ public class Beatmap : MonoBehaviour
 
     private Beatdata[] m_bdBeatdata;
 
+    public Sprite[] m_sSpriteIcons = new Sprite[4];
+
     public GameObject m_goBeatPrefab;
     public GameObject m_goBeatBigPrefab;
     public GameObject[] m_goLaneList;
@@ -118,6 +120,9 @@ public class Beatmap : MonoBehaviour
 
                     m_baBeatActivation.m_lCurrentBeats.Add(newBeat);
                     PopFirstBeat();
+
+                    // Sets the icon for the beat depending in the lane
+                    newBeat.GetComponent<SpriteRenderer>().sprite = m_sSpriteIcons[beatInfo.m_usLane];
 
                     if (m_bdBeatdata.Length > 0)
                         // Resets timers for next beat

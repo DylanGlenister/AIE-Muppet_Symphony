@@ -19,11 +19,6 @@ public class Beat : MonoBehaviour
     void Start ()
     {
         m_rbRigidbody = GetComponent<Rigidbody2D>();
-        m_rbRigidbody.AddForce(new Vector2(-m_fSpeed, 0));
-    }
-
-    // Update is called once per frame
-    void Update ()
-    {
+        m_rbRigidbody.AddForce(new Vector2(0, -m_fSpeed));
     }
 }
