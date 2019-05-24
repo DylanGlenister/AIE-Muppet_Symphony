@@ -35,7 +35,7 @@ public class Score : MonoBehaviour
     // Update is called once per frame
     void Update ()
     {
-        if(!scoreText)
+        if (scoreText)
             scoreText.text = m_uiScore.ToString();
     }
 }

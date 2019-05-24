@@ -5,6 +5,7 @@ using UnityEngine;
 public class MenuSpash : MonoBehaviour
 {
     public GameObject m_goSplashScreen;
+    public GameObject m_goBackground;
     public GameObject m_goMenuPanel;
 
     private void Awake()
@@ -15,6 +16,7 @@ public class MenuSpash : MonoBehaviour
     public void HideSplash()
     {
         m_goSplashScreen.SetActive(false);
+        m_goBackground.SetActive(false);
         m_goMenuPanel.SetActive(true);
     }
 }
