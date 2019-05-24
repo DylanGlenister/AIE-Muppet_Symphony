@@ -20,8 +20,9 @@ public class ArmController : MonoBehaviour
 
     [Header("Misc")]
     public KeyCode moveBothPlayersBothArms = KeyCode.Space;
+    public KeyCode resetBothPlayerArms = KeyCode.R;
     public Vector2 forceApplied = new Vector2(0, 7500);
-
+   
 
     // Update is called once per frame
     void Update()
@@ -50,5 +51,12 @@ public class ArmController : MonoBehaviour
             rightPlayerLeftArm.AddForce((forceApplied) * transform.up);
             rightPlayerRightArm.AddForce((forceApplied) * transform.up);
         }
+
+        // Reset Players back to original positions
+        if (Input.GetKeyDown(resetBothPlayerArms))
+        {
+            
+        }
     }
+
 }
