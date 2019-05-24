@@ -9,7 +9,7 @@ public class MenuSpash : MonoBehaviour
 
     private void Awake()
     {
-        Invoke("HideSplash", 3.0f);
+        Invoke("HideSplash", 2.0f);
     }
 
     public void HideSplash()
