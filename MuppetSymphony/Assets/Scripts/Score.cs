@@ -1,9 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Score : MonoBehaviour
 {
+    public Text scoreText;
+
     private uint m_uiScore { get; set; }
 
     public void AddScore (uint pValue)
@@ -32,6 +35,7 @@ public class Score : MonoBehaviour
     // Update is called once per frame
     void Update ()
     {
-        
+        if(!scoreText)
+            scoreText.text = m_uiScore.ToString();
     }
 }
