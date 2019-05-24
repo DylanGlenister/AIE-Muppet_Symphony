@@ -20,7 +20,6 @@ public class ArmController : MonoBehaviour
 
     [Header("Misc")]
     public KeyCode moveBothPlayersBothArms = KeyCode.Space;
-    public KeyCode resetBothPlayerArms = KeyCode.R;
     public Vector2 forceApplied = new Vector2(0, 7500);
    
 
@@ -50,12 +49,6 @@ public class ArmController : MonoBehaviour
             leftPlayerRightArm.AddForce((forceApplied) * transform.up);
             rightPlayerLeftArm.AddForce((forceApplied) * transform.up);
             rightPlayerRightArm.AddForce((forceApplied) * transform.up);
-        }
-
-        // Reset Players back to original positions
-        if (Input.GetKeyDown(resetBothPlayerArms))
-        {
-            
         }
     }
 

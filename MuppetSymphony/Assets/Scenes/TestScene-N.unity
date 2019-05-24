@@ -112,6 +112,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!50 &261029106 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 5202786293611843371, guid: a3c845cb9d17e3b46afa3d95b3fd3f97,
+    type: 3}
+  m_PrefabInstance: {fileID: 151029637015587965}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &460564032
 GameObject:
   m_ObjectHideFlags: 0
@@ -147,10 +153,9 @@ MonoBehaviour:
   leftPlayerRightArm: {fileID: 983414367}
   moveRightPlayerLeftArm: 111
   moveRightPlayerRightArm: 112
-  rightPlayerLeftArm: {fileID: 0}
-  rightPlayerRightArm: {fileID: 0}
+  rightPlayerLeftArm: {fileID: 1445285846}
+  rightPlayerRightArm: {fileID: 261029106}
   moveBothPlayersBothArms: 32
-  resetBothPlayerArms: 114
   forceApplied: {x: 0, y: 7500}
 --- !u!4 &460564034
 Transform:
@@ -160,7 +165,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 460564032}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.3736034, y: -0.23761068, z: -0.046875}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -177,6 +182,12 @@ Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 8032053941230835818, guid: ae36f86d46908134ab0c634ece9dd7b2,
     type: 3}
   m_PrefabInstance: {fileID: 1464326063}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &1445285846 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 5202786295338465337, guid: a3c845cb9d17e3b46afa3d95b3fd3f97,
+    type: 3}
+  m_PrefabInstance: {fileID: 151029637015587965}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1464326063
 PrefabInstance:
@@ -335,6 +346,16 @@ PrefabInstance:
       propertyPath: m_Anchor.y
       value: 4.5
       objectReference: {fileID: 0}
+    - target: {fileID: 8032053940722615593, guid: ae36f86d46908134ab0c634ece9dd7b2,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032053941038315579, guid: ae36f86d46908134ab0c634ece9dd7b2,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae36f86d46908134ab0c634ece9dd7b2, type: 3}
 --- !u!1 &2022085033
@@ -485,6 +506,51 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5202786295606247004, guid: a3c845cb9d17e3b46afa3d95b3fd3f97,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 1.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 5202786295606247004, guid: a3c845cb9d17e3b46afa3d95b3fd3f97,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 2.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 5202786295606247004, guid: a3c845cb9d17e3b46afa3d95b3fd3f97,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5202786293886783751, guid: a3c845cb9d17e3b46afa3d95b3fd3f97,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: -0.19999981
+      objectReference: {fileID: 0}
+    - target: {fileID: 5202786293886783751, guid: a3c845cb9d17e3b46afa3d95b3fd3f97,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: -0.4999994
+      objectReference: {fileID: 0}
+    - target: {fileID: 5202786295338465286, guid: a3c845cb9d17e3b46afa3d95b3fd3f97,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: 0.07999996
+      objectReference: {fileID: 0}
+    - target: {fileID: 5202786295338465286, guid: a3c845cb9d17e3b46afa3d95b3fd3f97,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: 0.69999987
+      objectReference: {fileID: 0}
+    - target: {fileID: 5202786295558501305, guid: a3c845cb9d17e3b46afa3d95b3fd3f97,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: -0.19999972
+      objectReference: {fileID: 0}
+    - target: {fileID: 5202786295558501305, guid: a3c845cb9d17e3b46afa3d95b3fd3f97,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: 0.49999988
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3c845cb9d17e3b46afa3d95b3fd3f97, type: 3}
