@@ -9,9 +9,7 @@ public class Beat : MonoBehaviour
         regular,
         big
     }
-
-    public Size m_sSize { get; set; } = Size.regular;
-
+    
     public ushort m_usLane;
     public float m_fSpeed = 200.0f;
  

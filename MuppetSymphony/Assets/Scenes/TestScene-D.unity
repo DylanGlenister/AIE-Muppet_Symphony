@@ -415,12 +415,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f81ca56744717d94d9b91ad8922b0737, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ba_beatActivation: {fileID: 637378230}
-  go_beatPrefab: {fileID: 7042980965032727379, guid: 18e0e1d4ec488ce41844102944ac9ee1,
+  m_baBeatActivation: {fileID: 637378230}
+  m_goBeatPrefab: {fileID: 7042980965032727379, guid: 18e0e1d4ec488ce41844102944ac9ee1,
     type: 3}
-  go_beatBigPrefab: {fileID: 5152077402222055953, guid: 5b801a7d19c3e2749986e7b174a6c623,
+  m_goBeatBigPrefab: {fileID: 5152077402222055953, guid: 5b801a7d19c3e2749986e7b174a6c623,
     type: 3}
-  go_laneList:
+  m_goLaneList:
   - {fileID: 1511125685}
   - {fileID: 2145803358}
   - {fileID: 1448902943}
@@ -464,8 +464,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f5845d7e298935468c6fda3df1562cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  s_score: {fileID: 637378229}
-  l_currentBeats: []
+  m_sScore: {fileID: 637378229}
+  m_lCurrentBeats: []
 --- !u!1 &850429339
 GameObject:
   m_ObjectHideFlags: 0

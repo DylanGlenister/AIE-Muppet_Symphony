@@ -36,8 +36,7 @@ public class BeatActivation : MonoBehaviour
             List<GameObject> toBeDeleted = new List<GameObject>();
             foreach (GameObject beat in m_lCurrentBeats)
             {
-                if (beat.GetComponent<Beat>().m_usLane == 0
-                    && beat.GetComponent<Beat>().m_sSize == Beat.Size.regular)
+                if (beat.GetComponent<Beat>().m_usLane == 0)
                 {
                     // Late
                     if (beat.transform.position.x < -7)
@@ -80,8 +79,7 @@ public class BeatActivation : MonoBehaviour
             List<GameObject> toBeDeleted = new List<GameObject>();
             foreach (GameObject beat in m_lCurrentBeats)
             {
-                if (beat.GetComponent<Beat>().m_usLane == 1
-                    && beat.GetComponent<Beat>().m_sSize == Beat.Size.regular)
+                if (beat.GetComponent<Beat>().m_usLane == 1)
                 {
                     // Late
                     if (beat.transform.position.x < -7)
@@ -124,8 +122,7 @@ public class BeatActivation : MonoBehaviour
             List<GameObject> toBeDeleted = new List<GameObject>();
             foreach (GameObject beat in m_lCurrentBeats)
             {
-                if (beat.GetComponent<Beat>().m_usLane == 2
-                    && beat.GetComponent<Beat>().m_sSize == Beat.Size.regular)
+                if (beat.GetComponent<Beat>().m_usLane == 2)
                 {
                     // Late
                     if (beat.transform.position.x < -7)
@@ -168,8 +165,7 @@ public class BeatActivation : MonoBehaviour
             List<GameObject> toBeDeleted = new List<GameObject>();
             foreach (GameObject beat in m_lCurrentBeats)
             {
-                if (beat.GetComponent<Beat>().m_usLane == 3
-                    && beat.GetComponent<Beat>().m_sSize == Beat.Size.regular)
+                if (beat.GetComponent<Beat>().m_usLane == 3)
                 {
                     // Late
                     if (beat.transform.position.x < -7)
@@ -212,8 +208,7 @@ public class BeatActivation : MonoBehaviour
             List<GameObject> toBeDeleted = new List<GameObject>();
             foreach (GameObject beat in m_lCurrentBeats)
             {
-                if (beat.GetComponent<Beat>().m_usLane == 4
-                    && beat.GetComponent<Beat>().m_sSize == Beat.Size.big)
+                if (beat.GetComponent<Beat>().m_usLane == 4)
                 {
                     // Late
                     if (beat.transform.position.x < -7)

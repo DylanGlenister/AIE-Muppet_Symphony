@@ -27,11 +27,11 @@ public class Beatmap : MonoBehaviour
         // Finds the filepath of the unityproject
         string path = Application.dataPath;
         //Debug.Log(path);
-        //Debug.Log(path + "/Beatmaps" + pLocation);
+        //Debug.Log(path + "/Beatmaps/" + pLocation);
 
         // Transfers the contents of a text file into a string array
         // Each line is the data for a single beat with position and delay info
-        string[] lines = File.ReadAllLines(path + "/Beatmaps" + pLocation, System.Text.Encoding.UTF8);
+        string[] lines = File.ReadAllLines(path + "/Beatmaps/" + pLocation, System.Text.Encoding.UTF8);
 
         // Updates the beatlist to the length of the data imported
         m_bdBeatdata = new Beatdata[lines.Length];
@@ -75,7 +75,7 @@ public class Beatmap : MonoBehaviour
         m_uiDelayTimer = 0;
 
         // Test read
-        ReadFromFile("/test.txt");
+        ReadFromFile("test.txt");
     }
 
     private void Update ()
@@ -97,7 +97,6 @@ public class Beatmap : MonoBehaviour
                         Quaternion.identity);
 
                     Beat beatInfo = newBeat.GetComponent<Beat>();
-                    beatInfo.m_sSize = Beat.Size.big;
                     beatInfo.m_usLane = m_bdBeatdata[0].m_usLane;
 
                     m_baBeatActivation.m_lCurrentBeats.Add(newBeat);
@@ -115,7 +114,6 @@ public class Beatmap : MonoBehaviour
                         Quaternion.identity);
 
                     Beat beatInfo = newBeat.GetComponent<Beat>();
-                    beatInfo.m_sSize = Beat.Size.regular;
                     beatInfo.m_usLane = m_bdBeatdata[0].m_usLane;
 
                     m_baBeatActivation.m_lCurrentBeats.Add(newBeat);
