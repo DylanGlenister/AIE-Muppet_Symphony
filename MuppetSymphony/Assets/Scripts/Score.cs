@@ -4,29 +4,29 @@ using UnityEngine;
 
 public class Score : MonoBehaviour
 {
-    private uint ui_score { get; set; }
+    private uint m_uiScore { get; set; }
 
     public void AddScore (uint pValue)
     {
-        ui_score += pValue;
-        Debug.Log(ui_score);
+        m_uiScore += pValue;
+        Debug.Log(m_uiScore);
     }
 
     public void SubtractScore (uint pValue)
     {
-        if (pValue > ui_score)
-            ui_score = 0;
+        if (pValue > m_uiScore)
+            m_uiScore = 0;
         else
-            ui_score -= pValue;
+            m_uiScore -= pValue;
 
-        Debug.Log(ui_score);
+        Debug.Log(m_uiScore);
     }
 
     // Start is called before the first frame update
     void Start ()
     {
-        ui_score = 0;
-        Debug.Log(ui_score);
+        m_uiScore = 0;
+        Debug.Log(m_uiScore);
     }
 
     // Update is called once per frame
