@@ -45,3 +45,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Head
+    uniqueID: 1447715771
+    locked: 0
+  - name: Pupils
+    uniqueID: 1855668475
+    locked: 0
+  - name: Arms
+    uniqueID: 3080068735
+    locked: 0
