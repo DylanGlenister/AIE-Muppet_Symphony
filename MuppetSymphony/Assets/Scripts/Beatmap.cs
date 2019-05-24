@@ -75,7 +75,7 @@ public class Beatmap : MonoBehaviour
         m_uiDelayTimer = 0;
 
         // Test read
-        ReadFromFile("test.txt");
+        ReadFromFile("AMWG.txt");
     }
 
     private void Update ()

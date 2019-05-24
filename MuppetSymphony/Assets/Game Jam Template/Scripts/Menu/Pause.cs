@@ -1,9 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Pause : MonoBehaviour {
-
-
+public class Pause : MonoBehaviour
+{
 	private ShowPanels showPanels;						//Reference to the ShowPanels script used to hide and show UI panels
 	private bool isPaused;								//Boolean to check if the game is paused or not
 	private StartOptions startScript;					//Reference to the StartButton script
@@ -36,7 +35,6 @@ public class Pause : MonoBehaviour {
 	
 	}
 
-
 	public void DoPause()
 	{
 		//Set isPaused to true
@@ -47,7 +45,6 @@ public class Pause : MonoBehaviour {
 		showPanels.ShowPausePanel ();
 	}
 
-
 	public void UnPause()
 	{
 		//Set isPaused to false
@@ -57,6 +54,4 @@ public class Pause : MonoBehaviour {
 		//call the HidePausePanel function of the ShowPanels script
 		showPanels.HidePausePanel ();
 	}
-
-
 }
