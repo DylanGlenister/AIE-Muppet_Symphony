@@ -1,7 +1,14 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream
 guid: f438ea442d8c96347a5207d33d7d7f6c
 AudioImporter:
   externalObjects: {}
+=======
+guid: 7db0c87ec4fdb0e48af04349c4f14df9
+timeCreated: 1435332774
+licenseType: Store
+AudioImporter:
+>>>>>>> Stashed changes
   serializedVersion: 6
   defaultSettings:
     loadType: 0
@@ -12,10 +19,15 @@ AudioImporter:
     conversionMode: 0
   platformSettingOverrides: {}
   forceToMono: 0
+<<<<<<< Updated upstream
   normalize: 1
   preloadAudioData: 1
   loadInBackground: 0
   ambisonic: 0
+=======
+  preloadAudioData: 1
+  loadInBackground: 0
+>>>>>>> Stashed changes
   3D: 1
   userData: 
   assetBundleName: 
